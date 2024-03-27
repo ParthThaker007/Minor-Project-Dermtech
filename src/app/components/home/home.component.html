@@ -1,1 +1,80 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dermtech - Home</title>
+    <link rel="stylesheet" href="home.component.css">
+</head>
+
+<body>
+    <header>
+        <!-- Inside your HTML template -->
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="assets/Dermtech.png" alt="Dermtech Logo" id="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li> <a href="#"> Home</a>
+                </li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a routerLink="/login">Login</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="main-section">
+        <div class="container">
+            <div class="content">
+                <div class="text">
+                    <h2>Welcome to Dermtech</h2>
+                    <p>We are an AI-based skin disease detection website.</p>
+                    <p>Our mission is to provide accurate and efficient diagnosis through cutting-edge technology.</p>
+                    <button>
+                  <i class="fas fa-plus"></i> Start Diagnose
+                </button>
+                </div>
+                <div class="image">
+                    <img src="assets/Dermtech.png" alt="Skin Disease Detection Image">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="footer">
+        <p>&copy; 2024 Dermtech. All rights reserved.</p>
+    </footer>
+
+    <!-- Angular Login Modal -->
+    <!-- Include your Angular component for login/signup here -->
+    <!-- For demonstration purpose, I'm using a placeholder div -->
+    <div id="loginModal">
+        <!-- Your Angular login/signup component goes here -->
+        <!-- Example: <app-login></app-login> -->
+    </div>
+
+    <script>
+        // JavaScript for scrollable footer
+        window.addEventListener("scroll", function() {
+            var footer = document.getElementById("footer");
+            if (window.pageYOffset > (document.body.scrollHeight - window.innerHeight - 100)) {
+                footer.style.display = "block";
+            } else {
+                footer.style.display = "none";
+            }
+        });
+
+        // JavaScript for opening login/signup modal
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            var loginModal = document.getElementById("loginModal");
+            loginModal.style.display = "block";
+        });
+    </script>
+</body>
+
+</html>
