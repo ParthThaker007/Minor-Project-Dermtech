@@ -1,0 +1,61 @@
+#a1 {
+    text-align: center;
+    padding: 20px;
+    border: 2px;
+}
+
+#a2 {
+    text-align: center;
+    padding: 20px;
+}
+
+#email {
+    display: block;
+    padding: 10px;
+}
+
+#password {
+    display: block;
+    padding: auto;
+    margin-right: 20px;
+}
+
+label {
+    size: h3;
+    margin-right: 5px;
+}
+
+#button {
+    padding: auto;
+    display: block;
+    text-align: center;
+}
+
+button {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: aquamarine;
+    background-color: blue;
+    border-radius: 5px;
+    align-self: center;
+    height: 5vh;
+    width: 100px;
+}
+
+#span {
+    text-align: center;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    padding: auto;
+    margin-top: 20px;
+}
+
+#a3 {
+    border: 10px;
+    border-radius: 10px;
+    border-color: black;
+    width: 500px;
+    align-items: center;
+    text-align: center;
+    margin-left: 350px;
+}
