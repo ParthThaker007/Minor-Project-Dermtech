@@ -1,0 +1,100 @@
+#a1 {
+    text-align: center;
+    padding: 20px;
+    border: 2px;
+}
+
+#a2 {
+    text-align: center;
+    padding: 5px;
+}
+
+#email {
+    display: block;
+    padding: 10px;
+}
+
+#password {
+    display: block;
+    padding: auto;
+    margin-right: 20px;
+}
+
+label {
+    size: h3;
+    margin-right: 5px;
+}
+
+#button {
+    padding: auto;
+    display: block;
+    text-align: center;
+}
+
+button {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    background-color: #996515;
+    border-radius: 5px;
+    align-self: center;
+    height: 5vh;
+    width: 100px;
+}
+
+#span {
+    text-align: center;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    padding: auto;
+    margin-top: 20px;
+}
+
+#a3 {
+    border: 10px;
+    border-radius: 10px;
+    border-color: black;
+    width: 500px;
+    align-items: center;
+    text-align: center;
+    margin-left: 350px;
+}
+
+#loginImage {
+    margin: 0 auto 20px;
+    align-self: center;
+    width: 200px;
+    margin-top: 40px;
+}
+
+#img1 {
+    align-content: center;
+    align-self: center;
+    margin: left 150px;
+}
+
+#text1 {
+    color: #996515;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-color: #996515;
+}
+
+#text2 {
+    color: #996515;
+    font-size: medium;
+}

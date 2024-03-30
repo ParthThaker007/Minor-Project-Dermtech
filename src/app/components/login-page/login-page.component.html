@@ -10,16 +10,16 @@
         <div id="a1">
             <div id="email">
                 <label for="email" id="text2"><i>Email</i></label>
-                <input required type="text" placeholder="Enter Your Email" size="25px">
+                <input required type="text" [(ngModel)]="email" placeholder="Enter Your Email" size="25px">
             </div>
             <br>
             <div id="password">
                 <label for="password" id="text2"><i>Password</i></label>
-                <input type="password" placeholder="Enter Your Password" size="25px">
+                <input type="password" [(ngModel)]="password" placeholder="Enter Your Password" size="25px">
             </div>
         </div>
         <div id="button">
-            <button>Submit</button>
+            <button (click)="login()">Submit</button>
         </div>
         <div id="span">
             <span>Don't have an account? 
