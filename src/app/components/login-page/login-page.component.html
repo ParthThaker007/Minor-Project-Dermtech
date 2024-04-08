@@ -1,29 +1,36 @@
 <div>
     <div id="img1">
         <img src="assets/Dermtech.png" alt="Login Image" id="loginImage">
-
     </div>
     <div id="a2">
         <h2 id="text1"><i>Welcome to Dermtech</i></h2>
     </div>
-    <form>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
         <div id="a1">
             <div id="email">
-                <label for="email" id="text2"><i>Email</i></label>
-                <input required type="text" [(ngModel)]="email" placeholder="Enter Your Email" size="25px">
+                <label for="emailInput" id="text2"><i>Email</i></label>
+                <input required type="email" name="email" [(ngModel)]="email" #emailInput="ngModel" id="emailInput" placeholder="Enter Your Email" size="25px" autocomplete="email">
+                <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error">
+                    <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+                    <div *ngIf="emailInput.errors?.['email']">Invalid email format.</div>
+                </div>
             </div>
             <br>
             <div id="password">
-                <label for="password" id="text2"><i>Password</i></label>
-                <input type="password" [(ngModel)]="password" placeholder="Enter Your Password" size="25px">
+                <label for="passwordInput" id="text2"><i>Password</i></label>
+                <input required type="password" name="password" [(ngModel)]="password" #passwordInput="ngModel" id="passwordInput" placeholder="Enter Your Password" size="25px" autocomplete="current-password">
+                <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error">
+                    <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+                </div>
             </div>
         </div>
         <div id="button">
-            <button (click)="login()">Submit</button>
+            <button type="submit" [disabled]="loginForm.invalid">Submit</button>
         </div>
         <div id="span">
             <span>Don't have an account? 
             <a routerLink="/signUp">signUp</a></span>
         </div>
     </form>
+    <!-- <a *ngIf="isLoggedIn()" [routerLink]="['/home']">Continue to Home</a> -->
 </div>
