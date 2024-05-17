@@ -5,7 +5,7 @@
     <div id="a2">
         <h2 id="text1"><i>Welcome to Dermtech</i></h2>
     </div>
-    <form #loginForm="ngForm" (ngSubmit)="login()">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <div id="a1">
             <div id="email">
                 <label for="emailInput" id="text2"><i>Email</i></label>
@@ -29,7 +29,7 @@
         </div>
         <div id="span">
             <span>Don't have an account? 
-            <a routerLink="/signUp">signUp</a></span>
+          <a routerLink="/signUp">signUp</a></span>
         </div>
     </form>
     <!-- <a *ngIf="isLoggedIn()" [routerLink]="['/home']">Continue to Home</a> -->
