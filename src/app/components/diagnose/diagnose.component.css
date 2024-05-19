@@ -1,3 +1,67 @@
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 15px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        padding: 10px;
+        max-width: 250px;
+    }
+}
+
+.file-input {
+    width: calc(100% - 80px);
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    width: 70px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.diagnosis-result {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.diagnosis-result h3 {
+    margin-bottom: 10px;
+}
+
+.diagnosis-image {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -126,6 +190,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -188,4 +253,8 @@ button:hover {
     button {
         width: 100%;
     }
+}
+
+#texthead {
+    font-family: serif;
 }
