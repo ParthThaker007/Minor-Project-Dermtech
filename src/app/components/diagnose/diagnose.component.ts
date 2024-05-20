@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+interface PredictionResponse {
+  predicted_class: string;
+  confidence: number;
+}
 
 @Component({
   selector: 'app-diagnose',
@@ -11,33 +17,46 @@ export class DiagnoseComponent {
   predictedClass: string | null = null;
   confidence: number | null = null;
   errorMessage: string | null = null;
-  classNames: string[] = [
-    'actinic keratosis', 'basal cell carcinoma', 'dermatofibroma', 
-    'melanoma', 'nevus', 'pigmented benign keratosis', 
-    'seborrheic keratosis', 'squamous cell carcinoma', 'vascular lesion'
-  ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router, private ngZone: NgZone) {}
 
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0] || null;
+    console.log('File selected:', this.selectedFile);
   }
 
-  onSubmit(): void {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('file', this.selectedFile);
+  onSubmit() {
+    if (!this.selectedFile) {
+      this.errorMessage = 'Please select a file.';
+      return;
+    }
 
-      this.http.post<{class: string, confidence: number}>('http://127.0.0.1:5000/predict', formData)
-        .subscribe(response => {
-          console.log('Response from Flask backend:', response); // Log the response
-          this.predictedClass = response.class || null;
-          this.confidence = response.confidence || null;
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+    console.log('FormData prepared:', formData);
+
+    this.http.post<PredictionResponse>('http://127.0.0.1:5000/predict', formData).subscribe({
+      next: (response) => {
+        console.log('Response received:', response);
+        this.ngZone.run(() => {
+          this.predictedClass = response.predicted_class;
+          this.confidence = response.confidence;
           this.errorMessage = null;
-        }, error => {
-          this.errorMessage = 'Error processing file: ' + (error.error?.error || error.message);
-          console.error('Error:', error);
+          console.log('Predicted Class:', this.predictedClass, 'Confidence:', this.confidence);
         });
+      },
+      error: (error) => {
+        console.error('Error processing file:', error);
+        this.ngZone.run(() => {
+          this.errorMessage = 'Error processing file: ' + (error.error?.error || error.message);
+        });
+      }
+    });
+  }
+
+  knowMore() {
+    if (this.predictedClass) {
+      this.router.navigate(['/info', this.predictedClass]);
     }
   }
 }

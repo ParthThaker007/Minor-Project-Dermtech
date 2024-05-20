@@ -1,0 +1,9 @@
+<!-- disease-info.component.html -->
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+</div>
+
+<div *ngIf="diseaseInfo" class="disease-info">
+    <h2>{{ diseaseName }}</h2>
+    <p>{{ diseaseInfo }}</p>
+</div>

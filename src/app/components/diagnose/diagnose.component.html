@@ -1,90 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<header>
+    <nav>
+        <div class="logo">
+            <a href="#">
+                <img src="assets/Dermtech.png" alt="Dermtech Logo" id="logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a routerLink="/home">Home</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a routerLink="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars">
+                
+            </i>
+        </div>
+    </nav>
+</header>
+<div class="hero-container">
+    <div class="card">
+        <img src="/assets/Dermtech.png" alt="Hero Image" class="hero-image">
+        <h1 id="texthead"><i>Upload Your Image Here</i></h1>
+        <input type="file" (change)="onFileSelected($event)" class="file-input">
+        <button (click)="onSubmit()" class="submit-button">Submit</button>
+    </div>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dermtech - Home</title>
+<div *ngIf="errorMessage">
+    <p style="color: red;">{{ errorMessage }}</p>
+</div>
+<div class="Result-container">
+    <div class="card">
+        <div *ngIf="predictedClass">
+            <div class="diagnosis-result">
+                <h3>Diagnosis Result:</h3>
+                <p>Predicted Class: {{ predictedClass }}</p>
+                <p>Confidence: {{ confidence | percent }}</p>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">
-                    <img src="assets/Dermtech.png" alt="Dermtech Logo" id="logo">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a routerLink="/home">Home</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
-                <li><a routerLink="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars">
-                    
-                </i>
-            </div>
-        </nav>
-    </header>
-
-    <section class="main-section">
-        <div class="container">
-            <div class="content">
-                <div class="text">
-
-                    <div class="hero-container">
-                        <div class="card">
-                            <img src="/assets/Dermtech.png" alt="Hero Image" class="hero-image">
-                            <h1 id="texthead"><i>Upload Your Image Here</i></h1>
-                            <input type="file" (change)="onFileSelected($event)" class="file-input">
-                            <button (click)="onSubmit()" class="submit-button">Submit</button>
-                        </div>
-                    </div>
-
-                    <div *ngIf="errorMessage">
-                        <p style="color: red;">{{ errorMessage }}</p>
-                    </div>
-
-                    <div *ngIf="predictedClass">
-                        <div class="diagnosis-result">
-                            <h3>Diagnosis Result:</h3>
-                            <p>Predicted Class: {{ predictedClass }}</p>
-                            <p>Confidence: {{ confidence | percent }}</p>
-                            <img [src]="'assets/' + predictedClass + '.jpg'" alt="Diagnosis Image">
-                        </div>
-                    </div>
-                </div>
-
+                <button (click)="knowMore()" class="know-more-button">Know More</button>
             </div>
         </div>
-    </section>
-
-    <footer id="footer">
-        <p>&copy; 2024 Dermtech. All rights reserved.</p>
-    </footer>
-
-
-
-
-    <script>
-        // JavaScript for scrollable footer
-        window.addEventListener("scroll", function() {
-            var footer = document.getElementById("footer");
-            if (window.pageYOffset > (document.body.scrollHeight - window.innerHeight - 100)) {
-                footer.style.display = "block";
-            } else {
-                footer.style.display = "none";
-            }
-        });
-
-        // JavaScript for opening login/signup modal
-        document.querySelector(".hamburger").addEventListener("click", function() {
-            document.querySelector(".nav-links").classList.toggle("nav-active");
-        });
-    </script>
-</body>
-
-</html>
+    </div>
+</div>

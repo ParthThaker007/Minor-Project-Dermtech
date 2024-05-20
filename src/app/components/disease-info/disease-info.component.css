@@ -1,0 +1,21 @@
+/* disease-info.component.css */
+
+.error-message {
+    color: red;
+}
+
+.disease-info {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.disease-info h2 {
+    margin-top: 0;
+}
+
+.disease-info p {
+    white-space: pre-line;
+    /* To maintain line breaks from the API response */
+}

@@ -14,6 +14,7 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { environment } from '../environment/environment';
 import { DiagnoseComponent } from './components/diagnose/diagnose.component';
+import { DiseaseInfoComponent } from './components/disease-info/disease-info.component';
 
 
 
@@ -26,6 +27,7 @@ import { DiagnoseComponent } from './components/diagnose/diagnose.component';
     HomeComponent,
     SignUpPageComponent,
     DiagnoseComponent,
+    DiseaseInfoComponent,
 
   ],
   imports: [

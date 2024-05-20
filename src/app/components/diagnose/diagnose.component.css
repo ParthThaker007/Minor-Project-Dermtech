@@ -1,77 +1,67 @@
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: #f4f4f4;
+}
+
 .card {
-    background-color: white;
-    padding: 20px;
+    background: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
     width: 100%;
-    box-sizing: border-box;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    .card {
-        padding: 15px;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 400px) {
-    .card {
-        padding: 10px;
-        max-width: 250px;
-    }
+.hero-image {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 .file-input {
-    width: calc(100% - 80px);
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin: 20px 0;
 }
 
 .submit-button {
-    width: 70px;
-    padding: 10px;
+    background: #007bff;
+    color: white;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
     cursor: pointer;
 }
 
-.error-message {
-    color: red;
-    margin-bottom: 20px;
+.submit-button:hover {
+    background: #0056b3;
 }
 
 .diagnosis-result {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
-.diagnosis-result h3 {
-    margin-bottom: 10px;
-}
-
-.diagnosis-image {
-    max-width: 100%;
+.know-more-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+.know-more-button:hover {
+    background: #214588;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+.Result-container {
+    align-self: baseline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background: #f4f4f4;
 }
 
 nav {
@@ -111,29 +101,10 @@ nav {
     font-size: 24px;
 }
 
-
-/* Main section styles */
-
-.main-section {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.main-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-footer {
+header {
     background-color: #333;
     color: #fff;
-    text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 #logo {
@@ -148,113 +119,4 @@ footer {
     align-items: center;
     min-height: calc(100vh - 60px);
     /* Adjust for header height */
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-}
-
-.text {
-    width: 100%;
-    text-align: center;
-}
-
-.image {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.text h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.text p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.image img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* Media queries for responsiveness */
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        text-align: center;
-    }
-    .nav-links li {
-        margin: 10px 0;
-    }
-    .nav-links.nav-active {
-        display: flex;
-    }
-    .hamburger {
-        display: block;
-    }
-    .content {
-        flex-direction: column;
-    }
-    .text,
-    .image {
-        width: 100%;
-    }
-    .image {
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        padding: 0 10px;
-    }
-    .container {
-        padding: 20px;
-    }
-    .text h2 {
-        font-size: 20px;
-    }
-    .text p {
-        font-size: 14px;
-    }
-    button {
-        width: 100%;
-    }
-}
-
-#texthead {
-    font-family: serif;
 }
