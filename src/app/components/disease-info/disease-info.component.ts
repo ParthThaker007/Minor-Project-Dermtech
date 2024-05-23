@@ -18,7 +18,7 @@ export class DiseaseInfoComponent implements OnInit {
   diseaseInfo: string = '';
   errorMessage: string | null = null;
 
-  private openaiApiKey: string = '#';
+  private openaiApiKey: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
