@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ApiService } from '../../api.service';
 
 interface PredictionResponse {
   predicted_class: string;
@@ -18,7 +18,7 @@ export class DiagnoseComponent {
   confidence: number | null = null;
   errorMessage: string | null = null;
 
-  constructor(private http: HttpClient, private router: Router, private ngZone: NgZone) {}
+  constructor(private apiService: ApiService, private router: Router, private ngZone: NgZone) {}
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0] || null;
@@ -35,8 +35,8 @@ export class DiagnoseComponent {
     formData.append('file', this.selectedFile);
     console.log('FormData prepared:', formData);
 
-    this.http.post<PredictionResponse>('http://127.0.0.1:5000/predict', formData).subscribe({
-      next: (response) => {
+    this.apiService.predict(formData).subscribe({
+      next: (response: PredictionResponse) => {  // Ensure the response is typed correctly
         console.log('Response received:', response);
         this.ngZone.run(() => {
           this.predictedClass = response.predicted_class;

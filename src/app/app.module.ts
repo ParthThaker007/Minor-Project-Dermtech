@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupUpPageComponent } from './components/signup-up-page/signup-up-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-
+import { ApiService } from './api.service';
 import { HomeComponent } from './components/home/home.component';
 import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
 import {AngularFireModule} from '@angular/fire/compat';

@@ -1,5 +1,6 @@
 export const environment={
     production:false,
+    apiUrl: 'http://localhost:5000',
     firebase:{
         apiKey: "AIzaSyAvOkS34ShESUMUWXlUyR9vBnSqtm79ojw",
         authDomain: "medical-website-9a133.firebaseapp.com",

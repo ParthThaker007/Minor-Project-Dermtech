@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
-interface OpenAIResponse {
-  choices: {
-    text: string;
-  }[];
-}
-
+import { ApiService } from '../../api.service';
 @Component({
   selector: 'app-disease-info',
   templateUrl: './disease-info.component.html',
@@ -18,9 +11,7 @@ export class DiseaseInfoComponent implements OnInit {
   diseaseInfo: string = '';
   errorMessage: string | null = null;
 
-  private openaiApiKey: string = '';
-
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.diseaseName = this.route.snapshot.paramMap.get('disease');
@@ -30,29 +21,18 @@ export class DiseaseInfoComponent implements OnInit {
   }
 
   getDiseaseInfo(disease: string): void {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.openaiApiKey}`
+    this.apiService.getDiseaseInfo(disease).subscribe((response: any) => {
+      if (response.choices && response.choices.length > 0) {
+        this.diseaseInfo = response.choices[0].text.trim();
+      } else {
+        this.errorMessage = 'No information available.';
+      }
+    }, error => {
+      this.errorMessage = 'Error fetching disease information.';
+      if (error.error && error.error.error) {
+        this.errorMessage += ` ${error.error.error.message}`;
+      }
+      console.error('Error:', error);
     });
-
-    const body = {
-      prompt: `Provide detailed information about the disease ${disease}`,
-      max_tokens: 150
-    };
-
-    this.http.post<OpenAIResponse>('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', body, { headers })
-      .subscribe(response => {
-        if (response.choices && response.choices.length > 0) {
-          this.diseaseInfo = response.choices[0].text.trim();
-        } else {
-          this.errorMessage = 'No information available.';
-        }
-      }, (error: HttpErrorResponse) => {
-        this.errorMessage = 'Error fetching disease information.';
-        if (error.error && error.error.error) {
-          this.errorMessage += ` ${error.error.error.message}`;
-        }
-        console.error('Error:', error);
-      });
   }
 }
