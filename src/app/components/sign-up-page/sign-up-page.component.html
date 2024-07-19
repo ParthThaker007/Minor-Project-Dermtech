@@ -1,28 +1,31 @@
-<div id="a3">
-    <div id="img1">
-        <img src="assets/Dermtech.png" alt="Login Image" id="loginImage">
+<div class="navbar">
+    <div class="navbar-logo">
+        <img src="assets/logo.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a routerLink="/home">Home</a>
+    </div>
+</div>
 
-    </div>
-    <div id="a2">
-        <h2 id="text1"><i>Welcome to Dermtech</i></h2>
-    </div>
-    <form>
-        <div id="a1">
-            <div id="email">
-                <label for="email" id="text2">Email</label>
-                <input required type="text" placeholder="Enter your Email">
-            </div>
-            <div id="password">
-                <label for="password" id="text2">Password</label>
-                <input type="password" placeholder="Enter Your Password">
-            </div>
+<div class="signup-container">
+    <form (ngSubmit)="onSubmit()">
+        <h2>Sign Up</h2>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" [(ngModel)]="username" name="username" required>
         </div>
-        <div id="button">
-            <button>Submit</button>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required>
         </div>
-        <div id="span">
-            <span>Already have an account? 
-          <a routerLink="/login">Login</a></span>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" [(ngModel)]="password" name="password" required>
         </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+        </div>
+        <button type="submit">Sign Up</button>
     </form>
 </div>
